@@ -1,16 +1,24 @@
-//declare bacteria variables here  
- Bacteria one = new Bacteria();
- 
+ int oColor = (int)(Math.random()*256);
+ int tColor = (int)(Math.random()*256);
+ int thColor = (int)(Math.random()*256);
+ Bacteria [] colony;
  void setup()   
  {     
  	//initialize bacteria variables here 
+   colony = new Bacteria[8];
+   for(int i = 0; i < colony.length; i++){
+     colony[i] = new Bacteria();
+   }
+ 
  size(300,300);
  }   
  void draw()   
  {    
- 	//move and show the bacteria 
-   one.walk();
-   one.show();
+ 	//move and show the bacteria
+  for(int i = 0; i < colony.length; i++){
+   colony[i].walk();
+   colony[i].show();
+  }
  }  
  class Bacteria    
  { 
@@ -25,8 +33,8 @@
      myY = myY + (int)(Math.random()*3) - 1;
    }
    void show(){
-     fill(0);
-     ellipse(myX,myY, 10,10);
+     noStroke();
+     ellipse(myX,myY, 4,4);
    }
  	//lots of java!   
  }    

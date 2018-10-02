@@ -1,6 +1,9 @@
+//goals: each bacteria is a different color. they will be attracted to my mouse moving an element around. 
+ 
+ 
  int oColor = (int)(Math.random()*256);
  int tColor = (int)(Math.random()*256);
- int thColor = (int)(Math.random()*256);
+ int thColor = (int)(Math.random()*256); 
  Bacteria [] colony;
  void setup()   
  {     
@@ -33,6 +36,7 @@
      myY = myY + (int)(Math.random()*3) - 1;
    }
    void show(){
+     fill(oColor,tColor,thColor);
      noStroke();
      ellipse(myX,myY, 4,4);
    }

@@ -1,11 +1,11 @@
-Bacteria [] colony;
+ Bacteria [] colony;
  boolean eat = true;
  Food burger = new Food();
  void setup()   
  {     
  	//initialize bacteria variables here 
    background(0);
-   colony = new Bacteria[3];
+   colony = new Bacteria[100];
    for(int i = 0; i < colony.length; i++){
      colony[i] = new Bacteria();
    }
@@ -19,8 +19,8 @@ Bacteria [] colony;
   for(int i = 0; i < colony.length; i++){
    colony[i].walk();
    colony[i].show();
-   //burger.change();
   }
+  burger.change();
   
   
  }  
@@ -46,8 +46,20 @@ Bacteria [] colony;
    if(myY > mouseY){
      myY = myY + (int)(Math.random()*2) - 4;
    }
-   if(get(myX,myY) != color(0)){
+   if(get(myX,myY) == color(211,176,87)){
      eat = false;
+   }
+   if(get(myX,myY) == color(82,64,13)){
+     eat = false;
+   }
+   if(get(myX,myY) == color(107,234,69)){
+     eat = false;
+   }
+   if(get(myX,myY) == color(247,80,91)){
+     eat = false;
+   }
+   if(get(myX,myY) == color(0)){
+     eat = true;
    }
    }
   void show(){
@@ -73,8 +85,14 @@ Bacteria [] colony;
      }
    }
    void show(){
-     fill( 211,176,87);
-     ellipse(myX, myY, 20,20);
+     fill(211,176,87);
+     ellipse(myX, myY, 40,35);
+     fill(82,64,13);
+     rect(myX - 20, myY - 3, 40, 7, 7);
+     fill(107,234,69);
+     rect(myX - 20, myY - 5, 40, 3, 9);
+     fill(247,80,91);
+     rect(myX -20, myY + 4, 40, 3, 9);
    }
    
 }
